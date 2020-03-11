@@ -1,11 +1,58 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../../redux/actions";
+import Modal from "react-modal";
+import Filter from "../Layouts/Filter";
+import Sort from "../Layouts/Sort";
+
+const customStyles = {
+  content: {
+    top: "30%",
+    width: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    background: "#F1F3F6"
+  }
+};
+
+Modal.setAppElement('#root');
 
 class ShoppingList extends React.Component {
+  state = {
+    sort: false,
+    filter: false
+  };
   addToShoppingCart = id => {
     id.quantity = 1;
     this.props.addToCart(id);
+  };
+
+  closeModal = type => {
+    if (type === "sort") {
+      this.setState({
+        sort: false
+      });
+    } else if (type === "filter") {
+      this.setState({
+        filter: false
+      });
+    }
+  };
+  openModal = type => {
+    if (type === "sort") {
+      this.setState({
+        sort: true,
+        filter: false
+      });
+    } else if (type === "filter") {
+      this.setState({
+        filter: true,
+        sort: false
+      });
+    }
   };
 
   render() {
@@ -22,11 +69,19 @@ class ShoppingList extends React.Component {
 
     if (sortBy.sort === "lowToHigh") {
       list.items.sort((a, b) => {
-        return (a.price - (a.discount / 100) * a.price) - (b.price - (b.discount / 100) * b.price);
+        return (
+          a.price -
+          (a.discount / 100) * a.price -
+          (b.price - (b.discount / 100) * b.price)
+        );
       });
     } else if (sortBy.sort === "highToLow") {
       list.items.sort((a, b) => {
-       return (b.price - (b.discount / 100) * b.price) - (a.price - (a.discount / 100) * a.price);
+        return (
+          b.price -
+          (b.discount / 100) * b.price -
+          (a.price - (a.discount / 100) * a.price)
+        );
       });
     } else if (sortBy.sort === "discount") {
       list.items.sort((a, b) => {
@@ -37,15 +92,41 @@ class ShoppingList extends React.Component {
     return (
       <div className="items">
         <div className="item m-filter">
-          <p>
+          <p
+            onClick={this.openModal.bind(this, "sort")}
+            style={{ cursor: "pointer" }}
+          >
             <i className="fa fa-sort fa-lg" aria-hidden="true"></i> Sort
           </p>
+          <Modal
+            isOpen={this.state.sort}
+            onRequestClose={this.closeModal.bind(this, "sort")}
+            style={customStyles}
+            overlayClassName='overlay'
+          >
+            <button onClick={this.closeModal.bind(this, "sort")}>close</button>
+            <Filter />
+          </Modal>
         </div>
 
         <div className="item m-short-by">
-          <p>
+          <p
+            onClick={this.openModal.bind(this, "filter")}
+            style={{ cursor: "pointer" }}
+          >
             <i className="fa fa-filter fa-lg" aria-hidden="true"></i> Filter
           </p>
+          <Modal
+            isOpen={this.state.filter}
+            onRequestClose={this.closeModal.bind(this, "filter")}
+            style={customStyles}
+            overlayClassName='overlay'
+          >
+            <button onClick={this.closeModal.bind(this, "filter")}>
+              close
+            </button>
+            <Sort />
+          </Modal>
         </div>
 
         {list.items.map(item => (
