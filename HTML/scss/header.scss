@@ -1,0 +1,52 @@
+@import "variables";
+
+header {
+  background-color: $bg-color;
+  height: 35px;
+  padding: 10px;
+  text-align: "center";
+  .logo {
+    padding: 5px;
+  }
+  ul {
+    padding: 0px;
+    margin: 0px;
+    .left {
+      float: left;
+      color: #f7cd22;
+    }
+    .right {
+      float: right;
+      color: white;
+      padding: 5px;
+    }
+    li {
+      list-style-type: none;
+      display: inline;
+      input {
+        border-bottom: 1px solid #fff;
+        background: #4269ea;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        &::placeholder {
+          color: #fff;
+          padding: 5px 0;
+        }
+      }
+      .batch {
+        span {
+          font-size: 12px;
+          background: red;
+          border: 1px solid red;
+          border-radius: 20px;
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          width: 5px;
+          padding: 0 5px;
+        }
+      }
+    }
+  }
+}

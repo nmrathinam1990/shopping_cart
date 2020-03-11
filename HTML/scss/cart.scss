@@ -1,0 +1,124 @@
+.cart-items {
+  @media (max-width: 600px) {
+    padding: 10px;
+  }
+  .cart-item {
+    border: 1px solid #e0e0e1;
+    margin: 15px 0;
+    background-color: #fff;
+    display: -webkit-flex;
+    display: flex;
+    @media (max-width: 600px) {
+      flex-direction: row;
+    }
+    .cart-image {
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      @media (max-width: 600px) {
+        -webkit-flex: 2;
+        -ms-flex: 2;
+        flex: 2;
+      }
+      padding: 15px;
+      img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+    }
+    .cart-details {
+      @extend article;
+      @media (max-width: 600px) {
+        padding: 15px 15px 15px 0;
+      }
+      background-color: #fff;
+      .cart-price {
+        @extend section;
+        @media (max-width: 600px) {
+          p {
+            padding: 10px 0;
+          }
+        }
+        padding: 15px 0;
+        .offer {
+          flex: 3;
+        }
+        .quantity {
+          flex: 2;
+        }
+        .cart-remove-button {
+          flex: 1;
+        }
+        .c-price {
+          font-weight: bold;
+        }
+        .c-strike {
+          color: #8c8c8c;
+          text-decoration: line-through;
+          padding-left: 5px;
+        }
+        .c-percentage {
+          color: green;
+          padding-left: 5px;
+          font-weight: bold;
+        }
+        .quantity {
+          .count {
+            border: 1px solid grey;
+            padding: 5px;
+            background: #fff;
+          }
+          .increment,
+          .decrement {
+            border: 1px solid gray;
+            border-radius: 15px;
+            margin: 0 5px;
+            padding: 5px 10px;
+            background: #fff;
+          }
+        }
+        .cart-remove-button {
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+.p-details {
+  border: 1px solid #000;
+  margin: 15px 0;
+  @media (max-width: 600px) {
+    margin: 0;
+  }
+  p:nth-child(1) {
+    text-transform: uppercase;
+    color: #8c8c8c;
+    padding: 5px;
+    border-bottom: 1px solid #000;
+    font-weight: bold;
+  }
+  .p-breakup {
+    p {
+      color: #000;
+      border: none;
+      text-transform: initial;
+      padding: 15px 10px;
+      font-size: 14px;
+      span {
+        float: right;
+      }
+    }
+  }
+  .total-amt {
+    font-weight: bold;
+    color: #000;
+    padding: 15px 5px;
+    border-top: 1px solid #000;
+    span {
+      float: right;
+    }
+  }
+}

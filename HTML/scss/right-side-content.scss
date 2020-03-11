@@ -1,0 +1,114 @@
+@import "variables";
+@import "section";
+
+article {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  padding: 15px;
+  background-color: $content-bg-color;
+  @media (max-width: 600px) {
+    padding: 0;
+  }
+  .short-by {
+    padding: 15px 0;
+    @media (max-width: 600px) {
+      display: none;
+    }
+    ul {
+      margin: 0px;
+      padding: 0px;
+      li:first-child {
+        font-weight: bold;
+        padding: 0px;
+      }
+      li {
+        display: inline;
+        list-style-type: none;
+        padding-left: 15px;
+        p {
+          color: #8c8c8c;
+          font-weight: bold;
+          font-size: 14px;
+          display: inline;
+          cursor: pointer;
+          padding-bottom: 5px;
+          &.active{
+            color: $bg-color;
+            border-bottom: 2px solid $bg-color;
+          }
+        }
+      }
+    }
+  }
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .m-short-by,
+    .m-filter {
+      display: none;
+      @media (max-width: 600px) {
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        p {
+          padding: 10px 0;
+        }
+      }
+    }
+    .item {
+      flex: 1 0 21%;
+      margin: 5px;
+      height: auto;
+      @media (max-width: 600px) {
+        flex: 1 0 45%;
+        margin: 0;
+        padding: 5px;
+        border-top: 1px solid #e0e0e1;
+        &:nth-child(odd) {
+          border-right: 1px solid #e0e0e1;
+        }
+      }
+      img{
+        height: auto;
+        width: 100%;
+      }
+      p {
+        font-weight: bold;
+        font-size: 14px;
+        color: #505051;
+        padding: 10px 0;
+        &:nth-child(3) {
+          
+          color: #2d2d2d;
+        }
+      }
+      .btn {
+        text-align: center;
+      }
+      .cart-button {
+        background-color: #f7ad22;
+        color: #363533;
+        border-radius: 25px;
+        padding: 10px 5px;
+        font-size: 12px;
+        font-weight: bolder;
+        border: 0px;
+      }
+      .percentage {
+        color: green;
+        padding-left: 5px;
+        font-weight: bold;
+      }
+      .strike {
+        color: #8c8c8c;
+        text-decoration: line-through;
+        padding-left: 5px;
+      }
+      .price {
+        font-weight: bold;
+      }
+    }
+  }
+}

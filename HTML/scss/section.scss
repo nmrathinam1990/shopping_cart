@@ -1,0 +1,12 @@
+section {
+    display: -webkit-flex;
+    display: flex;
+  }
+
+
+  @media (max-width: 600px) {
+    section {
+      -webkit-flex-direction: column;
+      flex-direction: column;
+    }
+  }

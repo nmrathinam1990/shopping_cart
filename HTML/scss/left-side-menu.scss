@@ -1,0 +1,52 @@
+@import 'variables';
+
+aside{
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: $content-bg-color;
+  padding: 15px;
+  border-right: 1px solid #E4E5E6;
+  @media (max-width: 600px) {
+    &.cart{
+      display: block;
+      padding: 0 15px 15px 15px;
+    }
+    display: none;
+  }
+  p{
+    font-weight: bold;
+    font-size: 16px;
+    padding:5px 0 20px;
+  }
+  .tag{
+    text-align: center;
+    color: #838382;
+    font-size: 14px;
+    p{
+      font-size: 14px;
+    }
+    button{
+      background-color: $bg-color;
+      border: 0px;
+      padding: 10px 30px;
+      color: #fff;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+  }
+  .text-left{
+    float: left;
+  }
+  .text-right {
+    float: right;
+  }
+  .caption{
+    color: #838382;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .slider{
+    margin: 30px 0 5px;
+  }
+}
